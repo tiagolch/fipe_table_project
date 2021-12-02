@@ -11,7 +11,9 @@
     <h1 class="display-4 text-center">Tabela FIPE</h1>
     <p class="lead text-justify">A Tabela Fipe expressa preços médios de veículos no mercado nacional, servindo apenas como um parâmetro para negociações ou avaliações. Os preços efetivamente praticados variam em função da região, conservação, cor, acessórios ou qualquer outro fator que possa influenciar as condições de oferta e procura por um veículo específico.</p>
     <hr class="my-4">
-    <form>
+    <form action="" method="post">
+        {% csrf_token %}
+        
         <!-- Marcas -->
         <div class="form-group">
             <label for="marca">Marcas</label>
