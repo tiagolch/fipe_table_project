@@ -1,3 +1,5 @@
-jQuery( document ).ready(function() {
-    console.log("document ready");
+jQuery(document).ready(function () {
+    $('#tipo_veiculo').on('change', function () {
+        alert(this.value);
+    });
 });
