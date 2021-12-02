@@ -3,10 +3,12 @@ jQuery(document).ready(function () {
         let typeOfVehicle = this.value;
 
         if (typeOfVehicle === ""){
-            jQuery('#marca').attr("disabled", true);
+            jQuery('#marca').prop('disabled', true);
+            jQuery('#marca').selectpicker('refresh');
         }
         else {
-            jQuery("#marca").attr("disabled", false);
+            jQuery('#marca').prop('disabled', false);
+            jQuery('#marca').selectpicker('refresh');
         }
     });
 });
