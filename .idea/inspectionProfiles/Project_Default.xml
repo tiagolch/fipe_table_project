@@ -1,0 +1,36 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="EditorConfigEmptyHeader" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EditorConfigListAcceptability" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EditorConfigMissingRequiredDeclaration" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EditorConfigNumerousWildcards" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EditorConfigPairAcceptability" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EditorConfigPartialOverride" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EditorConfigPatternEnumerationRedundancy" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EditorConfigReferenceCorrectness" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EditorConfigRootDeclarationCorrectness" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EditorConfigRootDeclarationUniqueness" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EditorConfigSpaceInHeader" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EditorConfigUnexpectedComma" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EditorConfigValueCorrectness" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EditorConfigValueUniqueness" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="9">
+            <item index="0" class="java.lang.String" itemvalue="scikit-learn" />
+            <item index="1" class="java.lang.String" itemvalue="pdfplumber" />
+            <item index="2" class="java.lang.String" itemvalue="pillow" />
+            <item index="3" class="java.lang.String" itemvalue="camelot-py" />
+            <item index="4" class="java.lang.String" itemvalue="django-cryptography" />
+            <item index="5" class="java.lang.String" itemvalue="reportlab" />
+            <item index="6" class="java.lang.String" itemvalue="Pillow" />
+            <item index="7" class="java.lang.String" itemvalue="chardet" />
+            <item index="8" class="java.lang.String" itemvalue="asgiref" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
