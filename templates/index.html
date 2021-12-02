@@ -11,13 +11,13 @@
     <h1 class="display-4 text-center">Tabela FIPE</h1>
     <p class="lead text-justify">A Tabela Fipe expressa preços médios de veículos no mercado nacional, servindo apenas como um parâmetro para negociações ou avaliações. Os preços efetivamente praticados variam em função da região, conservação, cor, acessórios ou qualquer outro fator que possa influenciar as condições de oferta e procura por um veículo específico.</p>
     <hr class="my-4">
-    <form action="" method="post">
-        {% csrf_token %}
-        
+    <form action="" method="get">
+
         <!-- Marcas -->
         <div class="form-group">
             <label for="marca">Marcas</label>
             <select class="form-control" id="marca" name="marca">
+                <option></option>
             </select>
         </div>
 
@@ -25,6 +25,7 @@
         <div class="form-group">
             <label for="modelo">Modelos</label>
             <select class="form-control" id="modelo" name="modelo">
+                <option></option>
             </select>
         </div>
 
@@ -32,6 +33,7 @@
         <div class="form-group">
             <label for="ano">Anos</label>
             <select class="form-control" id="ano" name="ano">
+                <option></option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary float-right">Pesquisar</button>
