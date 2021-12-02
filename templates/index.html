@@ -15,44 +15,46 @@
     <h1 class="display-4 text-center">Tabela FIPE</h1>
     <p class="lead text-justify">A Tabela Fipe expressa preços médios de veículos no mercado nacional, servindo apenas como um parâmetro para negociações ou avaliações. Os preços efetivamente praticados variam em função da região, conservação, cor, acessórios ou qualquer outro fator que possa influenciar as condições de oferta e procura por um veículo específico.</p>
     <hr class="my-4">
-    <form action="" method="get">
+    <!-- Tipo de Veículo -->
+    <div class="form-group">
+        <label for="tipo_veiculo">Tipo de Veículo</label>
+        <select class="form-control" id="tipo_veiculo" name="tipo_veiculo">
+            <option value=""></option>
+            <option value="carros">Carros</option>
+            <option value="motos">Motos</option>
+            <option value="caminhoes">Caminhões</option>
+        </select>
+    </div>
 
-        <!-- Tipo de Veículo -->
-        <div class="form-group">
-            <label for="tipo_veiculo">Tipo de Veículo</label>
-            <select class="form-control" id="tipo_veiculo" name="tipo_veiculo">
-                <option value=""></option>
-                <option value="carros">Carros</option>
-                <option value="motos">Motos</option>
-                <option value="caminhoes">Caminhões</option>
-            </select>
-        </div>
+    <!-- Marcas -->
+    <div class="form-group">
+        <label for="marca">Marcas</label>
+        <select class="form-control selectpicker" id="marca" name="marca" data-live-search="true" disabled="true">
+            <option></option>
+        </select>
+    </div>
 
-        <!-- Marcas -->
-        <div class="form-group">
-            <label for="marca">Marcas</label>
-            <select class="form-control selectpicker" id="marca" name="marca" data-live-search="true" disabled="true">
-                <option></option>
-            </select>
-        </div>
+    <!-- Modelos -->
+    <div class="form-group">
+        <label for="modelo">Modelos</label>
+        <select class="form-control selectpicker" id="modelo" name="modelo" data-live-search="true" disabled="true">
+            <option></option>
+        </select>
+    </div>
 
-        <!-- Modelos -->
-        <div class="form-group">
-            <label for="modelo">Modelos</label>
-            <select class="form-control selectpicker" id="modelo" name="modelo" data-live-search="true" disabled="true">
-                <option></option>
-            </select>
-        </div>
+    <!-- Anos -->
+    <div class="form-group">
+        <label for="ano">Anos</label>
+        <select class="form-control selectpicker" id="ano" name="ano" data-live-search="true" disabled="true">
+            <option></option>
+        </select>
+    </div>
 
-        <!-- Anos -->
-        <div class="form-group">
-            <label for="ano">Anos</label>
-            <select class="form-control selectpicker" id="ano" name="ano" data-live-search="true" disabled="true">
-                <option></option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary float-right">Pesquisar</button>
-    </form>
+    <hr class="my-4">
+
+    <div id="result">
+
+    </div>
 </div>
 
 {% endblock %}

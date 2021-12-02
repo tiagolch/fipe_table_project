@@ -38,18 +38,18 @@ class FipeApi():
         url = f'https://parallelum.com.br/fipe/api/v1/{type_of_vehicle}/marcas'
         return self.get_json_response(url)
 
-    def get_models(self, type_of_vehicle, vehicle_code):
+    def get_models(self, type_of_vehicle, mark_code):
         # Exemplo: https://parallelum.com.br/fipe/api/v1/carros/marcas/59/modelos
-        url = f'https://parallelum.com.br/fipe/api/v1/{type_of_vehicle}/marcas/{vehicle_code}/modelos'
+        url = f'https://parallelum.com.br/fipe/api/v1/{type_of_vehicle}/marcas/{mark_code}/modelos'
         return self.get_json_response(url)
 
-    def get_years(self, type_of_vehicle, vehicle_code, vehicle_model_code):
+    def get_years(self, type_of_vehicle, mark_code, model_code):
         # Exemplo: https://parallelum.com.br/fipe/api/v1/carros/marcas/59/modelos/5940/anos
-        url = f'https://parallelum.com.br/fipe/api/v1/{type_of_vehicle}/marcas/{vehicle_code}/modelos/{vehicle_model_code}/anos'
+        url = f'https://parallelum.com.br/fipe/api/v1/{type_of_vehicle}/marcas/{mark_code}/modelos/{model_code}/anos'
         return self.get_json_response(url)
 
-    def get_value(self, type_of_vehicle, vehicle_code, vehicle_model_code, year_code):
+    def get_value(self, type_of_vehicle, mark_code, model_code, year_code):
         # Exemplo: https://parallelum.com.br/fipe/api/v1/carros/marcas/59/modelos/5940/anos/2014-3
-        url = f'https://parallelum.com.br/fipe/api/v1/{type_of_vehicle}/marcas/{vehicle_code}/modelos/{vehicle_model_code}/anos/{year_code}'
+        url = f'https://parallelum.com.br/fipe/api/v1/{type_of_vehicle}/marcas/{mark_code}/modelos/{model_code}/anos/{year_code}'
         return self.get_json_response(url)
 
