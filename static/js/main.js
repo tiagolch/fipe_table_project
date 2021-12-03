@@ -123,28 +123,32 @@ function getValue(yearCode) {
     });
 }
 
+function clearResult() {
+    jQuery('#result').html("");
+}
+
 jQuery(document).ready(function () {
     jQuery('#tipo_veiculo').on('change', function () {
         clearAllSelectOptions();
-        jQuery('#result').html("");
+        clearResult();
         getMarks(this.value);
     });
 
     jQuery('#marca').on('change', function () {
         clearSelectOptions('modelo');
         clearSelectOptions('ano');
-        jQuery('#result').html("");
+        clearResult();
         getModels(this.value);
     });
 
     jQuery('#modelo').on('change', function () {
         clearSelectOptions('ano');
-        jQuery('#result').html("");
+        clearResult();
         getYears(this.value);
     });
 
     jQuery('#ano').on('change', function () {
-        jQuery('#result').html("");
+        clearResult();
         getValue(this.value);
     });
 });
