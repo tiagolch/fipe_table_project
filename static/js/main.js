@@ -1,7 +1,7 @@
 function clearSelectOptions(idSelect) {
     //Removendo as opções.
     jQuery(`#${idSelect} option`).remove();
-    jQuery(idSelect).selectpicker('refresh');
+    jQuery(`#${idSelect}`).selectpicker('refresh');
 }
 
 function clearAllSelectOptions() {
