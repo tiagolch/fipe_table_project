@@ -1,0 +1,13 @@
+.modal-dialog {
+    height: 95% !important;
+  }
+  
+  .modal-content {
+    height: auto;
+    min-height: 95%;
+  }
+
+#modal-embed-content {
+    height: 100% !important;
+    width: 100% !important;
+}
