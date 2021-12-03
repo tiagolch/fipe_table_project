@@ -1,5 +1,12 @@
 .modal-dialog {
     height: 95% !important;
+    overflow-y: initial !important
+  }
+
+  /* Important part */
+  .modal-body{
+      height: 80vh;
+      overflow-y: auto; 
   }
   
   .modal-content {
