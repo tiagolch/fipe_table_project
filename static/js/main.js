@@ -113,10 +113,10 @@ function getValue(yearCode) {
         setModalTitle(marca, modelo);
         setModalEmbedContentSrc(codigoFipe);
 
-        let html = "<div class='card'>";
+        let html = "<div class='card bg-dark'>";
         html += "<div class='card-header text-center'><h3>Informações do Veículo</h3></div>";
         html += "<div class='card-body'>"
-        html += "<table class='table table-striped table-bordered'>";
+        html += "<table class='table table-dark table-striped table-bordered'>";
         html += "<tbody>";
         html += getTableRow("Ano do Modelo", anoModelo);
         html += getTableRow("Código FIPE", `<button id='button-show-modal' data-toggle='modal' data-target='#staticBackdrop'>${codigoFipe}</button>`);
