@@ -87,6 +87,14 @@ function getTableRow(key, value) {
     return `<tr><th>${key}</th><td>${value}</td></tr>`;
 }
 
+function setModalTitle(marca, modelo) {
+    jQuery('#staticBackdropLabel').html(`${marca} - ${modelo}`);
+}
+
+function setModalEmbedContentSrc(codigoFipe) {
+    jQuery('#modal-embed-content').attr('src', `https://www.tabelafipebrasil.com/FIPE/${codigoFipe}`);
+}
+
 function getValue(yearCode) {
     let typeOfVehicle = jQuery('#tipo_veiculo').val();
     let markCode = jQuery('#marca').val();
@@ -102,13 +110,16 @@ function getValue(yearCode) {
         let modelo = data.Modelo;
         let valor = data.Valor;
 
+        setModalTitle(marca, modelo);
+        setModalEmbedContentSrc(codigoFipe);
+
         let html = "<div class='card'>";
         html += "<div class='card-header text-center'><h3>Informações do Veículo</h3></div>";
         html += "<div class='card-body'>"
         html += "<table class='table table-striped table-bordered'>";
         html += "<tbody>";
         html += getTableRow("Ano do Modelo", anoModelo);
-        html += getTableRow("Código FIPE", codigoFipe);
+        html += getTableRow("Código FIPE", `<button id='button-show-modal' data-toggle='modal' data-target='#staticBackdrop'>${codigoFipe}</button>`);
         html += getTableRow("Conbustível", combustivel);
         html += getTableRow("Marca", marca);
         html += getTableRow("Mês de Referencia", mesReferencia);
