@@ -1,13 +1,13 @@
-function clearOptions(idSelect) {
+function clearSelectOptions(idSelect) {
     //Removendo as opções.
-    jQuery(`${idSelect} option`).remove();
+    jQuery(`#${idSelect} option`).remove();
     jQuery(idSelect).selectpicker('refresh');
 }
 
 function clearAllSelectOptions() {
-    clearOptions('#marca');
-    clearOptions('#modelo');
-    clearOptions('#ano');
+    clearSelectOptions('marca');
+    clearSelectOptions('modelo');
+    clearSelectOptions('ano');
 }
 
 function disableSelect(selectId, value) {
@@ -19,12 +19,12 @@ function getMarks(typeOfVehicle) {
 
     if (typeOfVehicle === "") {
         disableSelect('marca', true);
+        disableSelect('modelo', true);
+        disableSelect('ano', true);
     }
     else {
         disableSelect('marca', false);
-
         let url = `/marks_json/?tipo_veiculo=${typeOfVehicle}`;
-
         jQuery('#marca').append(new Option("", ""));
 
         jQuery.get(url, function (data) {
@@ -41,23 +41,24 @@ function getMarks(typeOfVehicle) {
 function getModels(markCode) {
     if (markCode === "") {
         disableSelect('modelo', true);
+        disableSelect('ano', true);
     } else {
         disableSelect('modelo', false);
+
+        let typeOfVehicle = jQuery('#tipo_veiculo').val();
+        let url = `/model_json/?tipo_veiculo=${typeOfVehicle}&codigo_marca=${markCode}`;
+      
+        jQuery('#modelo').append(new Option("", ""));
+
+        jQuery.get(url, function (data) {
+            for (let i = 0; i < data.modelos.length; i++) {
+                let item = data.modelos[i];
+                jQuery('#modelo').append(new Option(item.nome, item.codigo));
+            }
+
+            jQuery('#modelo').selectpicker('refresh');
+        });
     }
-
-    let typeOfVehicle = jQuery('#tipo_veiculo').val();
-    let url = `/model_json/?tipo_veiculo=${typeOfVehicle}&codigo_marca=${markCode}`;
-    
-    jQuery('#modelo').append(new Option("", ""));
-
-    jQuery.get(url, function (data) {
-        for (let i = 0; i < data.modelos.length; i++) {
-            let item = data.modelos[i];
-            jQuery('#modelo').append(new Option(item.nome, item.codigo));
-        }
-
-        jQuery('#modelo').selectpicker('refresh');
-    });
 }
 
 function getYears(modelCode) {
@@ -65,22 +66,21 @@ function getYears(modelCode) {
         disableSelect('ano', true);
     } else {
         disableSelect('ano', false);
+        let typeOfVehicle = jQuery('#tipo_veiculo').val();
+        let markCode = jQuery('#marca').val();
+        let url = `/year_json/?tipo_veiculo=${typeOfVehicle}&codigo_marca=${markCode}&codigo_modelo=${modelCode}`;
+
+        jQuery('#ano').append(new Option("", ""));
+
+        jQuery.get(url, function (data) {
+            for (let i = 0; i < data.length; i++) {
+                let item = data[i];
+                jQuery('#ano').append(new Option(item.nome, item.codigo));
+            }
+
+            jQuery('#ano').selectpicker('refresh');
+        });
     }
-
-    let typeOfVehicle = jQuery('#tipo_veiculo').val();
-    let markCode = jQuery('#marca').val();
-    let url = `/year_json/?tipo_veiculo=${typeOfVehicle}&codigo_marca=${markCode}&codigo_modelo=${modelCode}`;
-
-    jQuery('#ano').append(new Option("", ""));
-
-    jQuery.get(url, function (data) {
-        for (let i = 0; i < data.length; i++) {
-            let item = data[i];
-            jQuery('#ano').append(new Option(item.nome, item.codigo));
-        }
-
-        jQuery('#ano').selectpicker('refresh');
-    });
 }
 
 function getTableRow(key, value) {
@@ -91,7 +91,6 @@ function getValue(yearCode) {
     let typeOfVehicle = jQuery('#tipo_veiculo').val();
     let markCode = jQuery('#marca').val();
     let modelCode = jQuery('#modelo').val();
-
     let url = `/value_json/?tipo_veiculo=${typeOfVehicle}&codigo_marca=${markCode}&codigo_modelo=${modelCode}&codigo_ano=${yearCode}`;
 
     jQuery.get(url, function (data) {
@@ -101,8 +100,8 @@ function getValue(yearCode) {
         let marca = data.Marca;
         let mesReferencia = data.MesReferencia;
         let modelo = data.Modelo;
-        let valor = data.Valor; 
-        
+        let valor = data.Valor;
+
         let html = "<div class='card'>";
         html += "<div class='card-header text-center'><h3>Informações do Veículo</h3></div>";
         html += "<div class='card-body'>"
@@ -127,16 +126,20 @@ function getValue(yearCode) {
 jQuery(document).ready(function () {
     jQuery('#tipo_veiculo').on('change', function () {
         clearAllSelectOptions();
+        jQuery('#result').html("");
         getMarks(this.value);
     });
 
     jQuery('#marca').on('change', function () {
-        clearOptions('#modelo');
+        clearSelectOptions('modelo');
+        clearSelectOptions('ano');
+        jQuery('#result').html("");
         getModels(this.value);
     });
 
     jQuery('#modelo').on('change', function () {
-        clearOptions('#ano');
+        clearSelectOptions('ano');
+        jQuery('#result').html("");
         getYears(this.value);
     });
 
