@@ -18,12 +18,13 @@
     <!-- Tipo de Veículo -->
     <div class="form-group">
         <label for="tipo_veiculo">Tipo de Veículo</label>
-        <select class="form-control" id="tipo_veiculo" name="tipo_veiculo">
+        <select class="form-control" id="tipo_veiculo" name="tipo_veiculo" aria-describedby="tipo_veiculo_help">
             <option value=""></option>
             <option value="carros">Carros</option>
             <option value="motos">Motos</option>
             <option value="caminhoes">Caminhões</option>
         </select>
+        <small id="tipo_veiculo_help" class="form-text text-muted">Escolha o tipo de veículo (Carro, Moto ou Caminhão).</small>
     </div>
 
     <!-- Marcas -->
