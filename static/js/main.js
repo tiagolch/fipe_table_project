@@ -10,15 +10,18 @@ function clearAllSelectOptions() {
     clearOptions('#ano');
 }
 
+function disableSelect(selectId, value) {
+    jQuery(`#${selectId}`).prop('disabled', value);
+    jQuery(`#${selectId}`).selectpicker('refresh');
+}
+
 function getMarks(typeOfVehicle) {
 
     if (typeOfVehicle === "") {
-        jQuery('#marca').prop('disabled', true);
-        jQuery('#marca').selectpicker('refresh');
+        disableSelect('marca', true);
     }
     else {
-        jQuery('#marca').prop('disabled', false);
-        jQuery('#marca').selectpicker('refresh');
+        disableSelect('marca', false);
 
         let url = `/marks_json/?tipo_veiculo=${typeOfVehicle}`;
 
@@ -36,13 +39,15 @@ function getMarks(typeOfVehicle) {
 }
 
 function getModels(markCode) {
+    if (markCode === "") {
+        disableSelect('modelo', true);
+    } else {
+        disableSelect('modelo', false);
+    }
+
     let typeOfVehicle = jQuery('#tipo_veiculo').val();
-
     let url = `/model_json/?tipo_veiculo=${typeOfVehicle}&codigo_marca=${markCode}`;
-
-    jQuery('#modelo').prop('disabled', false);
-    jQuery('#modelo').selectpicker('refresh');
-
+    
     jQuery('#modelo').append(new Option("", ""));
 
     jQuery.get(url, function (data) {
@@ -56,13 +61,15 @@ function getModels(markCode) {
 }
 
 function getYears(modelCode) {
+    if (modelCode === "") {
+        disableSelect('ano', true);
+    } else {
+        disableSelect('ano', false);
+    }
+
     let typeOfVehicle = jQuery('#tipo_veiculo').val();
     let markCode = jQuery('#marca').val();
-
     let url = `/year_json/?tipo_veiculo=${typeOfVehicle}&codigo_marca=${markCode}&codigo_modelo=${modelCode}`;
-
-    jQuery('#ano').prop('disabled', false);
-    jQuery('#ano').selectpicker('refresh');
 
     jQuery('#ano').append(new Option("", ""));
 
@@ -88,8 +95,6 @@ function getValue(yearCode) {
     let url = `/value_json/?tipo_veiculo=${typeOfVehicle}&codigo_marca=${markCode}&codigo_modelo=${modelCode}&codigo_ano=${yearCode}`;
 
     jQuery.get(url, function (data) {
-        console.log(data);
-
         let anoModelo = data.AnoModelo;
         let codigoFipe = data.CodigoFipe;
         let combustivel = data.Combustivel;
@@ -114,8 +119,6 @@ function getValue(yearCode) {
         html += "</table>"
         html += "</div>"
         html += "</div'>";
-
-        console.log(html);
 
         jQuery('#result').html(html);
     });
