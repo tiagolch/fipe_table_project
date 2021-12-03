@@ -26,7 +26,7 @@
     /*optional*/
     font-family: arial, sans-serif;
     /*input has OS specific font-family*/
-    color: #069;
+    color: rgb(130, 205, 243);
     text-decoration: underline;
     cursor: pointer;
   }
