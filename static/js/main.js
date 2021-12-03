@@ -84,7 +84,7 @@ function getYears(modelCode) {
 }
 
 function getTableRow(key, value) {
-    return `<tr><th>${key}</ht><td>${value}<td></tr>`;
+    return `<tr><th>${key}</th><td>${value}</td></tr>`;
 }
 
 function getValue(yearCode) {
@@ -105,7 +105,7 @@ function getValue(yearCode) {
         let html = "<div class='card'>";
         html += "<div class='card-header text-center'><h3>Informações do Veículo</h3></div>";
         html += "<div class='card-body'>"
-        html += "<table class='table table-striped'>";
+        html += "<table class='table table-striped table-bordered'>";
         html += "<tbody>";
         html += getTableRow("Ano do Modelo", anoModelo);
         html += getTableRow("Código FIPE", codigoFipe);
