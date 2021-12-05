@@ -1,0 +1,32 @@
+.modal-dialog {
+    height: 95% !important;
+    overflow-y: initial !important
+  }
+
+  /* Important part */
+  .modal-body{
+      height: 80vh;
+      overflow-y: auto; 
+  }
+  
+  .modal-content {
+    height: auto;
+    min-height: 95%;
+  }
+
+#modal-embed-content {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+#button-show-modal {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: rgb(130, 205, 243);
+    text-decoration: underline;
+    cursor: pointer;
+  }
