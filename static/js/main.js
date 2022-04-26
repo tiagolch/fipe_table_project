@@ -120,9 +120,9 @@ function getValue(yearCode) {
         html += "<tbody>";
         html += getTableRow("Ano do Modelo", anoModelo);
         html += getTableRow("Código FIPE", `<button id='button-show-modal' data-toggle='modal' data-target='#staticBackdrop'>${codigoFipe}</button>`);
-        html += getTableRow("Conbustível", combustivel);
+        html += getTableRow("Combustível", combustivel);
         html += getTableRow("Marca", marca);
-        html += getTableRow("Mês de Referencia", mesReferencia);
+        html += getTableRow("Mês de Referência", mesReferencia);
         html += getTableRow("Modelo", modelo);
         html += getTableRow("Valor", valor);
         html += "</tbody>"
