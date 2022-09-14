@@ -38,6 +38,17 @@ function getMarks(typeOfVehicle) {
     }
 }
 
+function options(indice, url){
+    return  jQuery.get(url, function (data) {
+                for (let i = 0; i < data.modelos.length; i++) {
+                    let item = data.modelos[i];
+                    jQuery(indice).append(new Option(item.nome, item.codigo));
+                }
+
+                jQuery(indice).selectpicker('refresh');
+            });
+}
+
 function getModels(markCode) {
     if (markCode === "") {
         disableSelect('modelo', true);
@@ -50,14 +61,7 @@ function getModels(markCode) {
       
         jQuery('#modelo').append(new Option("", ""));
 
-        jQuery.get(url, function (data) {
-            for (let i = 0; i < data.modelos.length; i++) {
-                let item = data.modelos[i];
-                jQuery('#modelo').append(new Option(item.nome, item.codigo));
-            }
-
-            jQuery('#modelo').selectpicker('refresh');
-        });
+        options('#modelo', url);
     }
 }
 
@@ -72,14 +76,7 @@ function getYears(modelCode) {
 
         jQuery('#ano').append(new Option("", ""));
 
-        jQuery.get(url, function (data) {
-            for (let i = 0; i < data.length; i++) {
-                let item = data[i];
-                jQuery('#ano').append(new Option(item.nome, item.codigo));
-            }
-
-            jQuery('#ano').selectpicker('refresh');
-        });
+        options('#ano', url);
     }
 }
 
@@ -120,9 +117,9 @@ function getValue(yearCode) {
         html += "<tbody>";
         html += getTableRow("Ano do Modelo", anoModelo);
         html += getTableRow("Código FIPE", `<button id='button-show-modal' data-toggle='modal' data-target='#staticBackdrop'>${codigoFipe}</button>`);
-        html += getTableRow("Conbustível", combustivel);
+        html += getTableRow("Combustível", combustivel);
         html += getTableRow("Marca", marca);
-        html += getTableRow("Mês de Referencia", mesReferencia);
+        html += getTableRow("Mês de Referência", mesReferencia);
         html += getTableRow("Modelo", modelo);
         html += getTableRow("Valor", valor);
         html += "</tbody>"
